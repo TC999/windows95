@@ -38,7 +38,7 @@ export class CardSettings extends React.Component<
           <div className="card-header">
             <h2 className="card-title">
               <img src="../../static/settings.png" />
-              Settings
+              设置
             </h2>
           </div>
           <div className="card-body">
@@ -98,7 +98,7 @@ export class CardSettings extends React.Component<
       <fieldset>
         <legend>
           <img src="../../static/floppy.png" />
-          Floppy
+          软盘
         </legend>
         <input
           id="floppy-input"

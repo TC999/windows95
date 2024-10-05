@@ -1,39 +1,42 @@
-# Running windows95 in Docker
+# 在 Docker 中运行 Windows 95
 
-## Display using a volume mount of the host X11 Unix Socket (Linux Only):
+## 使用主机 X11 Unix 套接字挂载卷显示（仅限 Linux）：
 
-**Requirements:**
-* Linux OS with a running X-Server Display
-* [Docker](http://docker.io) 
+**需求：**
+* 运行 X-Server 显示的 Linux 操作系统
+* [Docker](http://docker.io)
 
-        docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY --device /dev/snd --name windows95 toolboc/windows95
-
-
-Note: You may need to run `xhost +` on your system to allow connections to the X server running on the host.
-
-## Display using Xming X11 Server over tcp Socket (Windows and beyond):
-
-**Requirements:**
-* [Xming](https://sourceforge.net/projects/xming/)
-* [Docker](http://docker.io) 
-
-1. Start the Xming X11 Server
-2. Run the command below:
-
-        docker run -e DISPLAY=host.docker.internal:0 --name windows95 toolboc/windows95
-
-## Display using the host XQuartz Server (MacOS Only):
-**Requirements:**
-* [XQuartz](https://www.xquartz.org/)
-* [Docker](http://docker.io) 
-
-1. Start XQuartz, go to `Preferences` -> `Security`, and check the box `Allow connections from network clients`
-2. Restart XQuartz
-3. In the terminal, run 
+```sh
+docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY --device /dev/snd --name windows95 toolboc/windows95
 ```
+
+注意：你可能需要在你的系统上运行 `xhost +` 以允许连接到主机上运行的 X 服务器。
+
+## 使用 Xming X11 服务器通过 TCP 套接字显示（Windows 及其他）：
+
+**需求：**
+* [Xming](https://sourceforge.net/projects/xming/)
+* [Docker](http://docker.io)
+
+1. 启动 Xming X11 服务器
+2. 运行以下命令：
+
+```sh
+docker run -e DISPLAY=host.docker.internal:0 --name windows95 toolboc/windows95
+```
+
+## 使用主机 XQuartz 服务器显示（仅限 MacOS）：
+**需求：**
+* [XQuartz](https://www.xquartz.org/)
+* [Docker](http://docker.io)
+
+1. 启动 XQuartz，转到 `Preferences` -> `Security`，并勾选 `Allow connections from network clients`
+2. 重启 XQuartz
+3. 在终端中运行
+```sh
 xhost +
 ```
-4. run 
-```
+4. 运行
+```sh
 docker run -it -e DISPLAY=host.docker.internal:0 toolboc/windows95
 ```

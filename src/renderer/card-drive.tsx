@@ -30,14 +30,13 @@ export class CardDrive extends React.Component<CardDriveProps, CardDriveState> {
           <div className="card-header">
             <h2 className="card-title">
               <img src="../../static/drive.png" />
-              Modify C: Drive
+              挂载 C: 盘
             </h2>
           </div>
           <div className="card-body">
             <p>
-              windows95 (this app) uses a raw disk image. Windows 95 (the
-              operating system) is fragile, so adding or removing files is
-              risky.
+              windows95（本应用程序）使用原始磁盘映像。Windows 95（操作系统）
+              很脆弱，因此添加或删除文件都有风险。
             </p>
             {advice}
           </div>
@@ -49,18 +48,17 @@ export class CardDrive extends React.Component<CardDriveProps, CardDriveState> {
   public renderAdviceWindows(): JSX.Element {
     return (
       <fieldset>
-        <legend>Changing the disk on Windows</legend>
+        <legend>在 Windows 上更改磁盘</legend>
         <p>
-          Windows 10 cannot mount raw disk images (ironically, macOS and Linux
-          can). However, tools exist that let you mount this drive, like the
-          freeware tool{" "}
+          Windows 10 无法挂载原始磁盘镜像（具有讽刺意味的是，macOS 和 Linux 可以）。
+          然而，存在一些工具可以让你挂载这个驱动器，比如免费工具{" "}
           <a
             target="_blank"
             href="https://www.osforensics.com/tools/mount-disk-images.html"
           >
-            OSFMount
-          </a>
-          . I am not affiliated with it, so please use it at your own risk.
+          OSFMount
+          </a>。
+          我与它没有关联，所以请自行承担风险使用。
         </p>
         {this.renderMountButton("Windows Explorer")}
       </fieldset>
@@ -70,10 +68,9 @@ export class CardDrive extends React.Component<CardDriveProps, CardDriveState> {
   public renderAdviceMac(): JSX.Element {
     return (
       <fieldset>
-        <legend>Changing the disk on macOS</legend>
+        <legend>在 macOS 上更改磁盘</legend>
         <p>
-          macOS can mount the disk image directly. Click the button below to see
-          the disk image in Finder. Then, double-click the image to mount it.
+          macOS 可以直接加载磁盘镜像。点击下面的按钮 磁盘镜像。然后，双击映像以加载它。
         </p>
         {this.renderMountButton("Finder")}
       </fieldset>
@@ -83,12 +80,11 @@ export class CardDrive extends React.Component<CardDriveProps, CardDriveState> {
   public renderAdviceLinux(): JSX.Element {
     return (
       <fieldset>
-        <legend>Changing the disk on Linux</legend>
+        <legend>在 Linux 上更改磁盘</legend>
         <p>
-          There are plenty of tools that enable Linux users to mount and modify
-          disk images. The disk image used by windows95 is a raw "img" disk
-          image and can probably be mounted using the <code>mount</code> tool,
-          which is likely installed on your machine.
+          有许多工具可以让 Linux 用户挂载和修改磁盘镜像。
+          windows95 使用的磁盘镜像是一个原始的 "img" 磁盘镜像，
+          很可能可以使用已安装在您的机器上的 <code>mount</code> 工具来挂载。
         </p>
         {this.renderMountButton("file viewer")}
       </fieldset>
@@ -99,7 +95,7 @@ export class CardDrive extends React.Component<CardDriveProps, CardDriveState> {
     return (
       <button className="btn" onClick={this.props.showDiskImage}>
         <img src="../../static/show-disk-image.png" />
-        <span>Show disk image in {explorer}</span>
+        <span>在 {explorer} 中显示磁盘文件</span>
       </button>
     );
   }

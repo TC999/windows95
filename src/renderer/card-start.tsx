@@ -10,9 +10,9 @@ export class CardStart extends React.Component<CardStartProps, {}> {
       <section id="section-start">
         <button className="btn" id="win95" onClick={this.props.startEmulator}>
           <img src="../../static/run.png" />
-          <span>Start Windows 95</span>
+          <span>启动 Windows 95</span>
         </button>
-        <small>Hit ESC to lock or unlock your mouse</small>
+        <small>按 ESC 键锁定或解锁鼠标</small>
       </section>
     );
   }
